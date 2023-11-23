@@ -28,7 +28,7 @@ I'm a full-stack developer and music producer/creator vying to build my version 
 
 ### :bar_chart: Stats
 
-![Steve's Github stats](https://github-readme-stats.vercel.app/api?username=steveb98&show_icons=true&hide=contribs&theme=gruvbox)
+![Steve's Github stats](https://github-readme-stats.vercel.app/api?username=steveb98&show_icons=true&hide=contribs,issues&theme=gruvbox)
 
 #
 
