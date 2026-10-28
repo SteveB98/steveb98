@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Build the animated SVGs used by the profile README.
 
-Writes assets/header-dark.svg, assets/header-light.svg and assets/divider.svg.
+Writes assets/header-{dark,light}.svg, assets/levels-{dark,light}.svg and
+assets/divider.svg.
 DM Sans is pinned to fixed weights, subset to the glyphs used, and embedded
 as base64 WOFF2 so the banner renders on-brand without any network fetch
 (GitHub serves README images through camo, which blocks external fonts).
@@ -44,6 +45,13 @@ REGIONS = [  # timeline lane: (label, x, width, kind)
     ("vox_take3.wav", 814, 180, "sound"),
     ("deploy.sh", 1002, 134, "code"),
 ]
+
+LEVELS = [  # (value, label, meter level 0..1); numbers match edgecraftdigital.com
+    ("30+", "WEBSITES CRAFTED", 0.82),
+    ("5.0", "AVERAGE STAR RATING", 1.0),
+    ("8+", "YEARS EXPERIENCE", 0.64),
+]
+LEVELS_H = 200
 
 THEMES = {
     "dark": dict(bg="#161826", surface="#232532", ink="#e9e9ed", accent="#9184d9",
@@ -200,6 +208,64 @@ def header(name, t, faces, font500):
     (OUT / f"header-{name}.svg").write_text(svg)
 
 
+def star(x, y, r, fill):
+    import math
+    pts = []
+    for i in range(10):
+        a = -math.pi / 2 + i * math.pi / 5
+        rr = r if i % 2 == 0 else r * 0.45
+        pts.append(f"{x + rr * math.cos(a):.1f},{y + rr * math.sin(a):.1f}")
+    return f'<polygon points="{" ".join(pts)}" fill="{fill}"/>'
+
+
+def levels(name, t, faces, font600):
+    """Three channel strips: big number, label, and an LED meter that pumps."""
+    col_w = (W - 2 * X0) / len(LEVELS)
+    seg_n, seg_w, seg_gap = 28, 8, 3
+    out, css = [], []
+    for i, (value, label, level) in enumerate(LEVELS):
+        x = X0 + i * col_w
+        if i:
+            out.append(f'<line x1="{x - 28:.1f}" x2="{x - 28:.1f}" y1="44" y2="{LEVELS_H - 40}" '
+                       f'stroke="{t["ink"]}" stroke-opacity="0.12"/>')
+        out.append(f'<text x="{x:.1f}" y="62" class="kicker">CH {i + 1:02d}  /  {label}</text>')
+        out.append(f'<text x="{x - 3:.1f}" y="128" class="big">{value}</text>')
+        if value == "5.0":
+            out.append(star(x + advance(font600, value, 60) + 22, 108, 15, t["accent"]))
+        lit = round(seg_n * level)
+        segs = []
+        for j in range(seg_n):
+            hot = j >= seg_n - 6
+            fill = t["accent"] if hot else t["ink"]
+            op = (0.95 if hot else 0.6) if j < lit else 0.1
+            segs.append(f'<rect x="{x + j * (seg_w + seg_gap):.1f}" y="152" width="{seg_w}" height="10" '
+                        f'rx="1.5" fill="{fill}" fill-opacity="{op}"/>')
+        meter_w = seg_n * (seg_w + seg_gap)
+        # an opaque "shutter" slides over the unlit end so the meter breathes
+        lo = 1 - (lit - 4) / seg_n
+        css.append(f".m{i}{{animation:m{i} {1.3 + 0.35 * i:.2f}s ease-in-out {-0.4 * i:.1f}s infinite alternate}}"
+                   f"@keyframes m{i}{{from{{transform:scaleX({max(lo, 0.02):.3f})}}"
+                   f"to{{transform:scaleX({max(1 - lit / seg_n, 0.001):.3f})}}}}")
+        out.append("".join(segs))
+        out.append(f'<rect class="sh m{i}" x="{x - 1:.1f}" y="150" width="{meter_w + 2:.1f}" height="14" '
+                   f'fill="{t["bg"]}" fill-opacity="0.82"/>')
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{LEVELS_H}" viewBox="0 0 {W} {LEVELS_H}" role="img" aria-labelledby="t">
+<title id="t">30+ websites crafted, 5.0 average star rating, 8+ years experience</title>
+<style>
+{faces}
+.big{{font:600 60px 'DM Sans 600','DM Sans',Inter,'Segoe UI',Helvetica,Arial,sans-serif;letter-spacing:-0.035em;fill:{t["ink"]}}}
+.kicker{{font:500 12px 'DM Sans 500','DM Sans',Inter,'Segoe UI',Helvetica,Arial,sans-serif;letter-spacing:0.22em;fill:{t["accent_text"]}}}
+.sh{{transform-box:fill-box;transform-origin:100% 50%}}
+{"".join(css)}
+@media (prefers-reduced-motion:reduce){{.sh{{animation:none!important;opacity:0}}}}
+</style>
+<rect width="{W}" height="{LEVELS_H}" rx="18" fill="{t["bg"]}"/>
+  {chr(10).join("  " + o for o in out)}
+</svg>
+'''
+    (OUT / f"levels-{name}.svg").write_text(svg)
+
+
 def divider():
     rnd = random.Random(3)
     bars, css = [], []
@@ -232,8 +298,12 @@ def main():
     small_text = KICKER + PROMPT + " " + "".join(PHRASES) + "".join(r[0] for r in REGIONS) + "0123456789."
     faces = font_face(600, 40, TITLE) + font_face(500, 14, small_text)
     font500 = instancer.instantiateVariableFont(TTFont(FONT), {"wght": 500, "opsz": 14})
+    font600 = instancer.instantiateVariableFont(TTFont(FONT), {"wght": 600, "opsz": 40})
+    level_text = "".join(v + l for v, l, _ in LEVELS) + "CH /0123456789"
+    level_faces = font_face(600, 40, "".join(v for v, _, _ in LEVELS)) + font_face(500, 14, level_text)
     for name, t in THEMES.items():
         header(name, t, faces, font500)
+        levels(name, t, level_faces, font600)
     divider()
     for p in sorted(OUT.glob("*.svg")):
         print(f"{p.relative_to(ROOT)}  {p.stat().st_size / 1024:.1f} KB")
