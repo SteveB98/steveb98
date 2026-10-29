@@ -108,8 +108,7 @@ A carpentry concept drawn like a shop drawing: dimension lines, a cut-list servi
 |:-----|:------|:-------------|
 | **[Segue](https://github.com/SteveB98/omarchy-segue)** | QML · Quickshell · Bash | An open-source Omarchy plugin: Spotify in the desktop bar, with a player panel and one-click handoff to your phone, speakers or TV via Spotify Connect. Built to pass the plugin marketplace's security checks. |
 | **Prospect Snapshot** | Node · TypeScript | Audits a business's website (Core Web Vitals, HTTPS, titles, schema, alt text, click-to-call) and serves a one-page report before I ever pick up the phone. |
-| **microsite** | Rust | A command-line generator for small, fast microsites. |
-| **More bar widgets** | QML · Quickshell | My Airtable task list and an AI usage pace meter, living in the same bar. |
+| **DevTools** | Python · PyQt6 | My desktop control room: one launcher that starts, stops and restarts my dev servers, build scripts and site test suites, with live logs, tray controls and client admin panels in their own windows. New tools plug in through a JSON registry. |
 | **Airtable planner** | Node · systemd | Imports won leads and slots incoming client work into my week on a timer, so the calendar fills itself. |
 
 ### :level_slider: The rig
