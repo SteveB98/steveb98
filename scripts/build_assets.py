@@ -33,7 +33,7 @@ PHRASES = [
     "building fast websites at EdgeCraft Digital",
     "producing music between commits",
     "automating the boring parts",
-    "mixing code and sound since UVic",
+    "mixing code and sound since 2016",
     "ricing Arch + Hyprland for fun",
 ]
 REGIONS = [  # timeline lane: (label, x, width, kind)

@@ -12,7 +12,7 @@
 
 ### :headphones: Now playing
 
-I write code like I mix a track: lay down the groove first, then sweat the details until it feels right. I run **[EdgeCraft Digital](https://edgecraftdigital.com)**, a one-person web studio in Victoria, BC. I design, build and automate fast websites for local businesses and musicians, then make sure people can actually find them. When the laptop closes, I'm making music.
+I treat websites like mixes: they always sound great on my own speakers, so I check them on a phone before anyone else hears them. I run **[EdgeCraft Digital](https://edgecraftdigital.com)**, a one-person web studio in Victoria, BC. I design, build and automate fast websites for local businesses and musicians, then make sure people can actually find them. When the laptop closes, I'm making music.
 
 ```ts
 const steve = {
