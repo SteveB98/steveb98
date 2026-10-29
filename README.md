@@ -26,7 +26,7 @@ const steve = {
   ],
   tinkering: [
     "a Rust CLI microsite generator",
-    "QML widgets for my Arch + Hyprland desktop",
+    "Omarchy desktop plugins in QML (Segue is open source)",
   ],
   workflow: "AI agents in the loop, a human on the faders",
   motto: "Build it. Get it found. Automate the rest.",
@@ -96,7 +96,7 @@ A carpentry concept drawn like a shop drawing: dimension lines, a cut-list servi
 - Producer and creator, trained in a combined Music + Computer Science program
 - DSP nerd at heart: years of Max/MSP patching and audio programming
 - Once wired a vintage **Buchla modular** into "the largest guitar pedal" with quad-speaker panning
-- Built music tools on the Spotify API before I built websites
+- Built music tools on the Spotify API before I built websites, and still do: [Segue](https://github.com/SteveB98/omarchy-segue) puts Spotify in my desktop bar
 
 </td>
 </tr>
@@ -106,10 +106,11 @@ A carpentry concept drawn like a shop drawing: dimension lines, a cut-list servi
 
 | Tool | Stack | What it does |
 |:-----|:------|:-------------|
+| **[Segue](https://github.com/SteveB98/omarchy-segue)** | QML · Quickshell · Bash | An open-source Omarchy plugin: Spotify in the desktop bar, with a player panel and one-click handoff to your phone, speakers or TV via Spotify Connect. Built to pass the plugin marketplace's security checks. |
 | **Prospect Snapshot** | Node · TypeScript | Audits a business's website (Core Web Vitals, HTTPS, titles, schema, alt text, click-to-call) and serves a one-page report before I ever pick up the phone. |
 | **microsite** | Rust | A command-line generator for small, fast microsites. |
-| **Desktop bar widgets** | QML · Quickshell | Hand-built widgets for my Arch + Hyprland setup: Spotify now playing, my Airtable task list, an AI usage pace meter. |
-| **Airtable planner** | Node · systemd | Imports won leads and slots incoming client work into my week on a timer, so the free Airtable plan still feels automated. |
+| **More bar widgets** | QML · Quickshell | My Airtable task list and an AI usage pace meter, living in the same bar. |
+| **Airtable planner** | Node · systemd | Imports won leads and slots incoming client work into my week on a timer, so the calendar fills itself. |
 
 ### :level_slider: The rig
 
@@ -130,7 +131,7 @@ A carpentry concept drawn like a shop drawing: dimension lines, a cut-list servi
 
 ### :vhs: Back catalog
 
-Where it started. These are the public repos:
+Where it started: my early public repos.
 
 | # | Track | Genre | Liner notes |
 |:-:|:------|:------|:------------|
