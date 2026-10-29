@@ -45,41 +45,20 @@ const steve = {
 
 Client work lives in private repos, so here's the finished product instead. More in the [EdgeCraft portfolio](https://edgecraftdigital.com/portfolio).
 
-<table>
-<tr>
-<td width="33%" valign="top">
-<a href="https://edgecraftdigital.com"><img src="./assets/work/edgecraft.jpg" alt="edgecraftdigital.com homepage on a laptop" width="100%"></a>
+<p align="center">
+  <a href="https://edgecraftdigital.com"><img src="./assets/work/edgecraft.jpg" alt="edgecraftdigital.com homepage on a laptop" width="32%"></a>
+  <a href="https://ramen-craft-vicvan.steve-afc.workers.dev"><img src="./assets/work/en-ramen.jpg" alt="En Ramen homepage on a laptop" width="32%"></a>
+  <a href="https://coast-craft-studio.steve-afc.workers.dev"><img src="./assets/work/true-grain.jpg" alt="True Grain Carpentry homepage on a laptop" width="32%"></a>
+</p>
 
-**[edgecraftdigital.com](https://edgecraftdigital.com)**<br>
-<sub>React · Vite · Supabase · Cloudflare Workers</sub>
+- **[edgecraftdigital.com](https://edgecraftdigital.com)** <sub>React · Vite · Supabase · Cloudflare Workers</sub><br>
+  My studio's own site. Moved off a no-code builder onto a prerendered Worker, so every route ships as real HTML for search engines and AI crawlers.
 
-My studio's own site. Moved off a no-code builder onto a prerendered Worker, so every route ships as real HTML for search engines and AI crawlers.
+- **[En Ramen](https://ramen-craft-vicvan.steve-afc.workers.dev)** <sub>React · Tailwind · Cloudflare Workers</sub><br>
+  A two-shop ramen concept: brush-kanji type subset to a few KB, bento menus, and every route prerendered for a fast first paint.
 
-</td>
-<td width="33%" valign="top">
-<a href="https://ramen-craft-vicvan.steve-afc.workers.dev"><img src="./assets/work/en-ramen.jpg" alt="En Ramen homepage on a laptop" width="100%"></a>
-
-**[En Ramen](https://ramen-craft-vicvan.steve-afc.workers.dev)**<br>
-<sub>React · Tailwind · Cloudflare Workers</sub>
-
-A two-shop ramen concept: brush-kanji type subset to a few KB, bento menus, and every route prerendered for a fast first paint.
-
-</td>
-<td width="33%" valign="top">
-<a href="https://coast-craft-studio.steve-afc.workers.dev"><img src="./assets/work/true-grain.jpg" alt="True Grain Carpentry homepage on a laptop" width="100%"></a>
-
-**[True Grain Carpentry](https://coast-craft-studio.steve-afc.workers.dev)**<br>
-<sub>React · Tailwind · Cloudflare Workers</sub>
-
-A carpentry concept drawn like a shop drawing: dimension lines, a cut-list services table and a tape-measure scroll bar.
-
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%" valign="top">
+- **[True Grain Carpentry](https://coast-craft-studio.steve-afc.workers.dev)** <sub>React · Tailwind · Cloudflare Workers</sub><br>
+  A carpentry concept drawn like a shop drawing: dimension lines, a cut-list services table and a tape-measure scroll bar.
 
 #### :computer: Side A: Code
 
@@ -88,9 +67,6 @@ A carpentry concept drawn like a shop drawing: dimension lines, a cut-list servi
 - Data and workflows: Supabase, Airtable automations, Python scripts that kill spreadsheet busywork
 - SEO plumbing nobody sees: prerendering, schema, sitemaps, analytics done right
 
-</td>
-<td width="50%" valign="top">
-
 #### :control_knobs: Side B: Sound
 
 - Producer and creator, trained in a combined Music + Computer Science program
@@ -98,18 +74,19 @@ A carpentry concept drawn like a shop drawing: dimension lines, a cut-list servi
 - Once wired a vintage **Buchla modular** into "the largest guitar pedal" with quad-speaker panning
 - Built music tools on the Spotify API before I built websites, and still do: [Segue](https://github.com/SteveB98/omarchy-segue) puts Spotify in my desktop bar
 
-</td>
-</tr>
-</table>
-
 ### :wrench: B-sides: tools I build for myself
 
-| Tool | Stack | What it does |
-|:-----|:------|:-------------|
-| **[Segue](https://github.com/SteveB98/omarchy-segue)** | QML · Quickshell · Bash | An open-source Omarchy plugin: Spotify in the desktop bar, with a player panel and one-click handoff to your phone, speakers or TV via Spotify Connect. Built to pass the plugin marketplace's security checks. |
-| **Prospect Snapshot** | Node · TypeScript | Audits a business's website (Core Web Vitals, HTTPS, titles, schema, alt text, click-to-call) and serves a one-page report before I ever pick up the phone. |
-| **DevTools** | Python · PyQt6 | My desktop control room: one launcher that starts, stops and restarts my dev servers, build scripts and site test suites, with live logs, tray controls and client admin panels in their own windows. New tools plug in through a JSON registry. |
-| **Airtable planner** | Node · systemd | Imports won leads and slots incoming client work into my week on a timer, so the calendar fills itself. |
+- **[Segue](https://github.com/SteveB98/omarchy-segue)** <sub>QML · Quickshell · Bash</sub><br>
+  An open-source Omarchy plugin: Spotify in the desktop bar, with a player panel and one-click handoff to your phone, speakers or TV via Spotify Connect. Built to pass the plugin marketplace's security checks.
+
+- **Prospect Snapshot** <sub>Node · TypeScript</sub><br>
+  Audits a business's website (Core Web Vitals, HTTPS, titles, schema, alt text, click-to-call) and serves a one-page report before I ever pick up the phone.
+
+- **DevTools** <sub>Python · PyQt6</sub><br>
+  My desktop control room: one launcher that starts, stops and restarts my dev servers, build scripts and site test suites, with live logs, tray controls and client admin panels in their own windows. New tools plug in through a JSON registry.
+
+- **Airtable planner** <sub>Node · systemd</sub><br>
+  Imports won leads and slots incoming client work into my week on a timer, so the calendar fills itself.
 
 ### :level_slider: The rig
 
@@ -132,12 +109,17 @@ A carpentry concept drawn like a shop drawing: dimension lines, a cut-list servi
 
 Where it started: my early public repos.
 
-| # | Track | Genre | Liner notes |
-|:-:|:------|:------|:------------|
-| 01 | [**Smart-Shuffle**](https://github.com/SteveB98/Smart-Shuffle) | Python · Flask · Spotify API | My first full-stack app: reshuffles Spotify playlists by song attributes instead of pure chance. |
-| 02 | [**MUS-407 Max/MSP Patches**](https://github.com/SteveB98/MUS-407-Max-MSP-Patches) | Max/MSP · DSP | The best patches from a year-long music-tech seminar at UVic. |
-| 03 | [**VolunteerOrganizer**](https://github.com/SteveB98/VolunteerOrganizer) | Python · Excel automation | Schedules volunteers and generates the Excel grids so nobody has to. |
-| 04 | [**Tinder-Clone**](https://github.com/SteveB98/Tinder-Clone) | React · Node · Express · MongoDB | Card swiping, auth and CSS animations. A guided build that taught me the MERN stack. |
+1. **[Smart-Shuffle](https://github.com/SteveB98/Smart-Shuffle)** <sub>Python · Flask · Spotify API</sub><br>
+   My first full-stack app: reshuffles Spotify playlists by song attributes instead of pure chance.
+
+2. **[MUS-407 Max/MSP Patches](https://github.com/SteveB98/MUS-407-Max-MSP-Patches)** <sub>Max/MSP · DSP</sub><br>
+   The best patches from a year-long music-tech seminar at UVic.
+
+3. **[VolunteerOrganizer](https://github.com/SteveB98/VolunteerOrganizer)** <sub>Python · Excel automation</sub><br>
+   Schedules volunteers and generates the Excel grids so nobody has to.
+
+4. **[Tinder-Clone](https://github.com/SteveB98/Tinder-Clone)** <sub>React · Node · Express · MongoDB</sub><br>
+   Card swiping, auth and CSS animations. A guided build that taught me the MERN stack.
 
 <details>
 <summary><h3>:memo: Liner notes (the long version)</h3></summary>
